@@ -257,7 +257,7 @@ formDados.addEventListener('submit', (event) => {
 🎟 Ingresso: ${ingressoSelecionado}
 💰 Valor: ${valorIngresso}
 
-*Aguardando seu PIX para confirmação.*`;
+*Aguardando Anciosamente para fazer meu pagamento!!!.*`;
 
     let telefoneHost = "5511947310530"; 
     let url = `https://wa.me/${telefoneHost}?text=${encodeURIComponent(msg)}`;

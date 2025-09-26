@@ -32,11 +32,15 @@ body {
 /* -----------------------------
     Banner responsivo (<header>)
 ----------------------------- */
+/* -----------------------------
+    Banner responsivo (<header>) - Ajuste para Mobile
+----------------------------- */
 .hero-banner { 
   position: relative;
   width: 100%;
+  /* ALTERAÇÃO CHAVE: Usamos 100dvh (Dynamic Viewport Height) */
+  /* Ele se ajusta automaticamente para descontar barras de navegação do celular. */
   height: 100dvh; 
-  height: 100vh;
   background: black;
   display: flex;
   align-items: center;
