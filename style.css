@@ -1,0 +1,425 @@
+/* -----------------------------
+    Variáveis CSS (Custom Properties)
+----------------------------- */
+:root {
+  /* Cores Principais do Festival */
+  --cor-fundo-principal: #000;
+  --cor-texto-principal: #fff;
+  
+  /* Cores de Destaque / Neon */
+  --cor-cta-vermelha: #ff4b2b;
+  --cor-cta-laranja: #ff416c;
+  --cor-amarela-neon: #ffea00;
+  --cor-verde-sucesso: #00c851;
+  
+  /* Gradientes */
+  --gradiente-cta: linear-gradient(90deg, var(--cor-cta-laranja), var(--cor-cta-vermelha));
+  --gradiente-modal: linear-gradient(135deg, #111, #222);
+}
+
+/* -----------------------------
+    Reset básico
+----------------------------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--cor-fundo-principal); 
+  color: var(--cor-texto-principal);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* -----------------------------
+    Banner responsivo (<header>)
+----------------------------- */
+.hero-banner { 
+  position: relative;
+  width: 100%;
+  height: 100dvh; 
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+/* Bordas animadas neon laterais - Usando vw */
+.hero-banner::before,
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1vw; 
+  background: linear-gradient(180deg, #ff0000, #ffea00, #00ffea, #ff00ea);
+  animation: neon 3s linear infinite;
+}
+
+.hero-banner::before { left: 0; }
+.hero-banner::after { right: 0; }
+
+@keyframes neon {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Botão do banner - Usando Variáveis */
+#btnIngressos {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradiente-cta);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 0px 25px rgba(255, 75, 43, 0.8);
+  animation: pulse 1.5s infinite;
+  z-index: 10;
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* -----------------------------
+    Modais
+----------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--gradiente-modal);
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 420px;
+  color: white;
+  box-shadow: 0px 0px 25px rgba(255,255,255,0.2);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* -----------------------------
+    Inputs
+----------------------------- */
+.modal input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+}
+
+/* -----------------------------
+    Botões gerais
+----------------------------- */
+.modal button {
+  width: 95%;
+  padding: 14px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btnProsseguir {
+  background: var(--cor-amarela-neon);
+  color: black;
+  box-shadow: 0px 0px 15px rgba(255, 234, 0, 0.7);
+}
+#btnProsseguir:hover {
+  background: #ffd000;
+  transform: scale(1.05);
+}
+
+#btnFinalizar {
+  background: var(--cor-verde-sucesso);
+  color: white;
+  box-shadow: 0px 0px 15px rgba(0, 200, 81, 0.6);
+}
+#btnFinalizar:hover {
+  background: #009e3e;
+  transform: scale(1.05);
+}
+
+#btnConfirmaPagamento, #btnVerLineup, #btnContinuarParaLineup {
+    background: var(--cor-cta-vermelha);
+    color: white;
+    box-shadow: 0px 0px 15px rgba(255, 75, 43, 0.6);
+}
+#btnConfirmaPagamento:hover, #btnVerLineup:hover, #btnContinuarParaLineup:hover {
+    background: var(--cor-cta-laranja);
+    transform: scale(1.05);
+}
+
+/* -----------------------------
+    Fechar modal
+----------------------------- */
+.close-btn { 
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: red;
+  transition: 0.3s;
+}
+.close-btn:hover {
+  color: white;
+}
+
+/* -----------------------------
+    Cards de ingresso
+----------------------------- */
+.opcoes-ingresso {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card-ingresso {
+  border: none; 
+  background: none; 
+  cursor: pointer;
+  flex: 1 1 100px;
+  transition: all 0.3s ease;
+}
+
+.card-content { 
+  background: #222;
+  border: 2px solid #222; 
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.card-ingresso:hover .card-content {
+  background: linear-gradient(135deg, #333, #444);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(255,75,43,0.5);
+  color: #fff;
+}
+
+.card-ingresso input {
+  display: none;
+}
+
+/* DESTAQUE DO INGRESSO SELECIONADO */
+.card-ingresso input:checked + .card-content {
+  background: var(--gradiente-cta); 
+  border-color: var(--cor-amarela-neon); 
+  box-shadow: 0 0 20px var(--cor-amarela-neon); 
+  transform: scale(1.03); 
+  color: #000;
+}
+
+/* Estilo para o Preço */
+.preco-ingresso {
+    font-size: 1.5em; 
+    font-weight: bold;
+    color: var(--cor-amarela-neon); 
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-shadow: 0 0 5px rgba(255, 234, 0, 0.5); 
+}
+
+/* Garante o contraste do preço no card selecionado */
+.card-ingresso input:checked + .card-content .preco-ingresso {
+    color: #000; 
+    text-shadow: none;
+}
+
+
+/* Estilo para a classe adicionada no modal de agradecimento */
+.aviso-confirma {
+    font-weight: bold;
+    color: var(--cor-amarela-neon);
+    margin: 15px 0 10px;
+}
+
+/* -----------------------------
+    Line-up do Festival
+----------------------------- */
+#lineup-section {
+    padding: 60px 20px;
+    background: var(--cor-fundo-principal);
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+#lineup-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px var(--cor-amarela-neon), 0 0 10px var(--cor-amarela-neon);
+}
+
+.data-evento {
+    color: #aaa;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.dias-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dia-card {
+    background: var(--gradiente-modal);
+    border: 2px solid var(--cor-cta-laranja);
+    border-radius: 15px;
+    padding: 25px;
+    flex: 1 1 300px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dia-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(255, 75, 43, 0.5);
+}
+
+.dia-card h3 {
+    color: var(--cor-amarela-neon);
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.dia-card .tema {
+    font-weight: bold;
+    color: #eee;
+    margin: 10px 0;
+}
+
+.dia-card ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.8;
+}
+
+.dia-card ul li {
+    padding-left: 1.5em;
+    position: relative;
+}
+.dia-card ul li::before {
+    content: "⚡"; 
+    color: var(--cor-amarela-neon);
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+
+/* Estilo para a frase de Ingresso (apenas para destaque) */
+.info-ingresso {
+    font-weight: bold;
+    color: var(--cor-cta-laranja); 
+}
+
+/* NOVO: Estilo para a ênfase na Bebida */
+.aviso-bebida {
+    margin-top: 50px;
+    margin-bottom: 5px;
+    font-size: 1.6em;
+    color: var(--cor-amarela-neon);
+    text-shadow: 0 0 10px rgba(255, 234, 0, 0.8);
+    animation: flash 2s infinite alternate; 
+}
+
+@keyframes flash {
+    from { opacity: 0.9; }
+    to { opacity: 1; }
+}
+
+.aviso-vip {
+    margin-top: 5px;
+    font-size: 1.2em;
+    color: var(--cor-cta-laranja);
+    font-style: italic;
+}
+
+/* -----------------------------
+    Rodapé
+----------------------------- */
+footer {
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 50px;
+    background: #111;
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#linkRelatorio {
+    color: #444; 
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#linkRelatorio:hover {
+    color: var(--cor-amarela-neon);
+}
+
+/* -----------------------------
+    Responsividade
+----------------------------- */
+@media screen and (max-width: 768px) {
+  .hero-banner::before,
+  .hero-banner::after {
+    display: none; 
+  }
+
+  #btnIngressos {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
+
+  .opcoes-ingresso {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nessupallooza 2025</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero-banner">
+    <img src="nessupallooza.png" alt="Pôster Oficial Nessupallooza 2025, 10, 11 & 12 OUT/2025">
+    <button id="btnIngressos">ADQUIRA SEU INGRESSO</button>
+  </header>
+
+  <main>
+    <section id="lineup-section" class="lineup-container" style="display: none;">
+      <h2>🔥 LINE-UP OFICIAL: NESSUPALOOZA 2025 🔥</h2>
+      <p class="data-evento">📍 Jarinu – Chácara do rolê | 📅 Dias 10, 11 e 12 de Outubro</p>
+
+      <div class="dias-container">
+        
+        <div class="dia-card">
+          <h3>🕺 SEXTA (10/OUT)</h3>
+          <p class="tema">**BALADA ANOS 2000**</p>
+          <ul>
+            <li>➡ DJ? Nós mesmos!</li>
+            <li>➡ Só os hinos que marcaram época (sim, vai ter Evidências e Ragatanga).</li>
+            <li class="info-ingresso">**➡ INGRESSO PARA 1 DIA.**</li>
+          </ul>
+        </div>
+
+        <div class="dia-card">
+          <h3>🥁 SÁBADO (11/OUT)</h3>
+          <p class="tema">**PAGODE NA VEIA**</p>
+          <ul>
+            <li>➡ Pagode ao vivo que não deixa ninguém parado</li>
+            <li>➡ Churras liberado no backstage 🍖🍻</li>
+            <li class="info-ingresso">**➡ INGRESSO PARA 2 DIAS.**</li>
+          </ul>
+        </div>
+
+        <div class="dia-card">
+          <h3>☀ DOMINGO (12/OUT)</h3>
+          <p class="tema">**AFTER NA PISCINA**</p>
+          <ul>
+            <li>➡ Som por conta da galera (cada um no seu turno na JBL) 🔊</li>
+            <li>➡ Hidroginástica improvisada com latinha na mão 🏊🍺</li>
+            <li class="info-ingresso"> 😎*INGRESSO OFICIAL PARA OS 3 DIAS.*😎</li>
+          </ul>
+        </div>
+        
+      </div>
+      <p class="aviso-bebida">😎 **TRAGA A SUA BEBIDA FAVORITA!!!** 🍻</p>
+      <p class="aviso-vip">🚫 Área VIP não existe, porque aqui todo mundo já é VIP no NESSUPALOOZA!</p>
+    </section>
+  </main>
+
+  <div id="modalEscolha" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" data-modal-id="modalEscolha">&times;</button>
+      <h2>ESCOLHA SEU TIPO DE INGRESSO</h2>
+      
+      <div class="opcoes-ingresso">
+        <label class="card-ingresso">
+          <input type="radio" name="ingresso" value="1 Dia">
+          <div class="card-content">
+            <h3>🎟 1 DIA</h3>
+            <p>Acesso completo por 1 dia de evento</p>
+            <p class="preco-ingresso">R$ 35,00</p>
+          </div>
+        </label>
+
+        <label class="card-ingresso">
+          <input type="radio" name="ingresso" value="2 Dias">
+          <div class="card-content">
+            <h3>🎟 2 DIAS</h3>
+            <p>Aproveite ainda mais com 2 dias de festa</p>
+            <p class="preco-ingresso">R$ 60,00</p>
+          </div>
+        </label>
+
+        <label class="card-ingresso">
+          <input type="radio" name="ingresso" value="3 Dias">
+          <div class="card-content">
+            <h3>🎟 3 DIAS</h3>
+            <p>Experiência completa em todos os dias</p>
+            <p class="preco-ingresso">R$ 80,00</p>
+          </div>
+        </label>
+      </div>
+
+      <button id="btnProsseguir">Prosseguir</button>
+    </div>
+  </div>
+
+  <div id="modalDados" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" data-modal-id="modalDados">&times;</button>
+      <h2>Preencha seus dados</h2>
+      
+      <form id="formDados"> 
+        <input type="text" id="nome" placeholder="Nome completo" required><br>
+        <input type="tel" id="telefone" placeholder="Telefone (WhatsApp)" required><br>
+        <button type="submit" id="btnFinalizar">Finalizar Compra</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modalPagamento" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" data-modal-id="modalPagamento">&times;</button>
+      <h2>Pagamento PIX</h2>
+      <p>Escaneie o QR Code abaixo para pagar:</p>
+      <img src="qrcode.png" alt="QR Code PIX" width="200">
+      <p id="contador">Tempo restante: 3:00</p>
+    </div>
+  </div>
+
+  <div id="modalAgradecimento" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" data-modal-id="modalAgradecimento">&times;</button>
+      <h2>🎉 OBRIGADO PELA COMPRA!</h2>
+      <p>Sua Presença e muito e ESPECIAL para o **Nessupallooza 2025** E está quase confirmada!!!.</p>
+      
+      
+      <div id="areaConfirmação">
+        <img id="previewIngresso" src="ingresso-modelo.png" alt="Prévia do Ingresso do Festival" style="width: 100%; max-width: 250px; border-radius: 8px; margin: 15px 0; display: none;">
+        
+        <p class="aviso-confirma"> **confirme aqui** para finalizar a emissão do seu ingresso.</p>
+        <button id="btnConfirmaPagamento">EU JÁ FIZ O PAGAMENTO</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="modalIngressoPronto" class="modal">
+      <div class="modal-content">
+          <button class="close-btn" data-modal-id="modalIngressoPronto">&times;</button>
+          <h2>✅ Ingresso Salvo!</h2>
+          <p>Seu ingresso foi aberto em uma nova aba e deve estar na sua galeria. Agora, confira a programação!</p>
+          <p class="aviso-confirma">Ao clicar abaixo, a página rolará para o Line-up completo.</p>
+          <button id="btnVerLineup">VER LINE-UP COMPLETO!</button>
+      </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+        <p>© 2025 Nessupallooza. Todos os direitos reservados a Fernandinho Daarkstar.</p>
+        <a href="#" id="linkRelatorio">Acessar Relatório de Vendas</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
